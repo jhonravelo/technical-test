@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-3">
+    <mat-form-field appearance="fill">
+      <mat-label>Select an Offer</mat-label>
+      <mat-select disableRipple (selectionChange)="changeOffer($event)">
+        <mat-option *ngFor="let list of listJson" [value]="list.versions[0]">{{list.versions[0].name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-md-9" style="text-align: right;">
+    <form class="example-form">
+      <mat-form-field class="example-full-width" style="padding-right: 10px;" appearance="fill">
+        <mat-label>ID Oferta</mat-label>
+        <input matInput placeholder="" disabled value="{{dataInfo.id}}">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="" disabled value="{{dataInfo.name}}">
+      </mat-form-field>
+
+     
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-3">
+    <app-characteristics [_characteristicsData]="dataInfo"></app-characteristics>
+  </div>
+  <div class="col-md-9">
+    <app-prices [_pricesData]="dataInfo"></app-prices>
+  </div>
+</div>
